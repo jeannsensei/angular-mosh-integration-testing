@@ -12,6 +12,7 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
+import { GreeterComponent } from './greeter/greeter.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
     VoterComponent,
     UsersComponent,
     HighlightDirective,
+    GreeterComponent,
   ],
   imports: [
     BrowserModule,
