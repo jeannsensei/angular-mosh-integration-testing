@@ -3,7 +3,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {
   async,
   ComponentFixture,
+  fakeAsync,
   TestBed,
+  tick,
   waitForAsync,
 } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
@@ -43,26 +45,22 @@ describe('TodosComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it(
-    'should load todos from the server',
-    waitForAsync(() => {
-      // Injecting service provider via component
-      // fixture.debugElement.injector.get(TodoService);
-      let service = TestBed.inject(TodoService);
+  it('should load todos from the server', fakeAsync(() => {
+    // Injecting service provider via component
+    // fixture.debugElement.injector.get(TodoService);
+    let service = TestBed.inject(TodoService);
 
-      // Observable
-      // spyOn(service, 'getTodos').and.returnValue(from([[1, 2, 3, 4]]));
+    // Observable
+    // spyOn(service, 'getTodos').and.returnValue(from([[1, 2, 3, 4]]));
 
-      // Promise
-      spyOn(service, 'getTodosPromise').and.returnValue(
-        Promise.resolve([1, 2, 3, 4])
-      );
-      fixture.detectChanges();
+    // Promise
+    spyOn(service, 'getTodosPromise').and.returnValue(
+      Promise.resolve([1, 2, 3, 4])
+    );
+    fixture.detectChanges();
 
-      fixture.whenStable().then(() => {
-        expect(component.todos.length).toBe(4);
-        console.log('EXPECT WAS CALLED');
-      });
-    })
-  );
+    tick();
+    expect(component.todos.length).toBe(4);
+    console.log('EXPECT WAS CALLED');
+  }));
 });
