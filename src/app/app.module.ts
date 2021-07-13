@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
 import { GreeterComponent } from './greeter/greeter.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { GreeterComponent } from './greeter/greeter.component';
     UsersComponent,
     HighlightDirective,
     GreeterComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
