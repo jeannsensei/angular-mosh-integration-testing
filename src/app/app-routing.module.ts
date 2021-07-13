@@ -5,7 +5,7 @@ import { UserDetailsComponent } from './3-user-details/user-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'users/:id', component: UserDetailsComponent },
   { path: 'users', component: UsersComponent },
   { path: 'todos', component: TodosComponent },
